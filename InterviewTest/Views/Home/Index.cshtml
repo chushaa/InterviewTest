@@ -1,0 +1,33 @@
+@model dynamic
+
+@{
+    Layout = "~/Views/_Layout.cshtml";
+    var interviewDesignUrl = "http://interview-ame.idevdesign.net";
+}
+
+<p>In order to read task instructions, please click on the links below.</p>
+
+<p>Please put your work within each respective Action in the Home Controller so that we can see your code.</p>
+
+<ol>
+    <li>@Html.ActionLink("Banner Tracking Report", "BannerTrackingReport")</li>
+    <li>@Html.ActionLink("Hotels Web Service", "HotelsWebService")</li>
+    <li>@Html.ActionLink("Custom Validator", "CustomValidator")</li>
+</ol>
+
+<h2>Frequently Asked Questions</h2>
+
+<p><strong>How can I connect directly to the database server via SQL Server Enterprise Manager or SQL Server Management Studio?</strong><p>
+<p>The answer is that you can't connect directly to it from your own computer. We don't expose our test database server to the Internet because of security concerns.<p></p>
+
+You can work with the database in one of two ways:
+
+<ol>
+    <li>We've prepared a set of SQL commands that you can run locally on your computer to build the table structures and fill the data. You'll just need to create a new blank database called "webapp" and then run the commands found here: @Html.ActionLink("SQL script", "HelperSql")</li>
+    <li>The other option is for you to write your code and then upload it to our server via the FTP login and check your work in the browser (<a href="@interviewDesignUrl">@interviewDesignUrl</a>). Before you hand in your test, you'll need to make sure it works on our server like this as we can't check the results on your computer - we can only check them on our server.</li>
+</ol>
+
+<p>A connection string has been included in web.config. This is the connection string that should be included with your code when you submit it back to us. Change this to whatever you need to work locally, but don't forget to revert it so that we can check your work.</p>
+
+<p><strong>How can I check my work?</strong></p>
+<p>You should check your work by going to the <a href="@interviewDesignUrl">@interviewDesignUrl</a> site and making sure that the pages are working correctly. that is how we are going to be testing your work - by first going to the interview url and pulling up the pages, then looking at your code after that.</p>

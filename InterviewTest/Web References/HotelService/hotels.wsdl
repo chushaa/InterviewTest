@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.design.americaneagle.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://ws.design.americaneagle.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.design.americaneagle.com">
+      <s:element name="GetHotel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="hotelId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHotelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHotelResult" type="tns:Hotel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Hotel">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Distance" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookingLink" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Images" type="tns:ArrayOfHotelImage" />
+          <s:element minOccurs="1" maxOccurs="1" name="HotelID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AirportCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StateProvince" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Longitude" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Latitude" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LowRate" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="HighRate" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="MarketingLevel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Confidence" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="HotelModified" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PropertyType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TimeZone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GMTOffset" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YearPropertyOpened" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YearPropertyRenovated" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NativeCurrency" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfRooms" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfSuites" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfFloors" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CheckInTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CheckOutTime" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasValetParking" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasContinentalBreakfast" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasInRoomMovies" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasSauna" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasWhirlpool" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasVoiceMail" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Has24HourSecurity" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasParkingGarage" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasElectronicRoomKeys" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasCoffeeTeaMaker" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasSafe" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasVideoCheckOut" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasRestrictedAccess" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasInteriorRoomEntrance" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasExteriorRoomEntrance" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasCombination" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasFitnessFacility" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasGameRoom" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasTennisCourt" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasGolfCourse" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasInHouseDining" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasInHouseBar" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasHandicapAccessible" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasChildrenAllowed" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasPetsAllowed" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasTVInRoom" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDataPorts" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasMeetingRooms" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasBusinessCenter" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDryCleaning" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasIndoorPool" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasOutdoorPool" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasNonSmokingRooms" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasAirportTransportation" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasAirConditioning" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasClothingIron" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasWakeUpService" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasMiniBarInRoom" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasRoomService" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasHairDryer" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasCarRentDesk" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasFamilyRooms" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasKitchen" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasMap" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PropertyDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rating" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="GDSChainCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GDSChaincodeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DestinationID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DrivingDirections" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NearbyAttractions" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AEIsMerchant" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AEModifyDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfHotelImage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HotelImage" nillable="true" type="tns:HotelImage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HotelImage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Caption" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="URL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Width" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Height" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThumbnailURL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThumbnailHeight" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThumbnailWidth" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="HotelCredentials" type="tns:HotelCredentials" />
+      <s:complexType name="HotelCredentials">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="ImageOptions" type="tns:ImageOptions" />
+      <s:complexType name="ImageOptions">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="includeImages" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="maxWidth" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="maxHeight" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="maxThumbnailWidth" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="maxThumbnailHeight" type="s:int" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetHotels">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetHotelsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHotelsResult" type="tns:ArrayOfHotel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHotel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Hotel" nillable="true" type="tns:Hotel" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FilterContainer" type="tns:FilterContainer" />
+      <s:complexType name="FilterContainer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="filters" type="tns:ArrayOfHotelFilter" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:complexType name="ArrayOfHotelFilter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HotelFilter" nillable="true" type="tns:HotelFilter" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HotelFilter" abstract="true" />
+      <s:complexType name="StateProvinceFilter">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:HotelFilter">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MerchantOnlyFilter">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:HotelFilter">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="value" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PostalCodeRangeFilter">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:HotelFilter">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="postalCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="range" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Latitude" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Longitude" type="s:double" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MultipleCityFilter">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:HotelFilter">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="cities" type="tns:ArrayOfMultipleCityFilterCity" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfMultipleCityFilterCity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MultipleCityFilterCity" nillable="true" type="tns:MultipleCityFilterCity" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MultipleCityFilterCity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExcludeHotelsFilter">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:HotelFilter">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ids" type="tns:ArrayOfInt" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NameFilter">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:HotelFilter">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CityFilter">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:HotelFilter">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="value" type="tns:CityFilterCity" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CityFilterCity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CountryFilter">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:HotelFilter">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PostalCodeFilter">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:HotelFilter">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="HotelPagingOptions" type="tns:HotelPagingOptions" />
+      <s:complexType name="HotelPagingOptions">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="sortField" type="tns:HotelSortField" />
+          <s:element minOccurs="1" maxOccurs="1" name="sortAscending" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="pageNumber" type="s:int" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:simpleType name="HotelSortField">
+        <s:restriction base="s:string">
+          <s:enumeration value="Name" />
+          <s:enumeration value="City" />
+          <s:enumeration value="StateProvince" />
+          <s:enumeration value="PostalCode" />
+          <s:enumeration value="Distance" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="SiteScope">
+        <s:complexType />
+      </s:element>
+      <s:element name="SiteScopeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteScopeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Hotel" nillable="true" type="tns:Hotel" />
+      <s:element name="ArrayOfHotel" nillable="true" type="tns:ArrayOfHotel" />
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetHotelSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHotel" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHotelResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelHotelCredentials">
+    <wsdl:part name="HotelCredentials" element="tns:HotelCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelImageOptions">
+    <wsdl:part name="ImageOptions" element="tns:ImageOptions" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHotels" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHotelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelsHotelCredentials">
+    <wsdl:part name="HotelCredentials" element="tns:HotelCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelsFilterContainer">
+    <wsdl:part name="FilterContainer" element="tns:FilterContainer" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelsImageOptions">
+    <wsdl:part name="ImageOptions" element="tns:ImageOptions" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelsHotelPagingOptions">
+    <wsdl:part name="HotelPagingOptions" element="tns:HotelPagingOptions" />
+  </wsdl:message>
+  <wsdl:message name="SiteScopeSoapIn">
+    <wsdl:part name="parameters" element="tns:SiteScope" />
+  </wsdl:message>
+  <wsdl:message name="SiteScopeSoapOut">
+    <wsdl:part name="parameters" element="tns:SiteScopeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelHttpGetIn">
+    <wsdl:part name="hotelId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelHttpGetOut">
+    <wsdl:part name="Body" element="tns:Hotel" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelsHttpGetIn" />
+  <wsdl:message name="GetHotelsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHotel" />
+  </wsdl:message>
+  <wsdl:message name="SiteScopeHttpGetIn" />
+  <wsdl:message name="SiteScopeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="HotelsSoap">
+    <wsdl:operation name="GetHotel">
+      <wsdl:input message="tns:GetHotelSoapIn" />
+      <wsdl:output message="tns:GetHotelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHotels">
+      <wsdl:input message="tns:GetHotelsSoapIn" />
+      <wsdl:output message="tns:GetHotelsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SiteScope">
+      <wsdl:input message="tns:SiteScopeSoapIn" />
+      <wsdl:output message="tns:SiteScopeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="HotelsHttpGet">
+    <wsdl:operation name="GetHotel">
+      <wsdl:input message="tns:GetHotelHttpGetIn" />
+      <wsdl:output message="tns:GetHotelHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHotels">
+      <wsdl:input message="tns:GetHotelsHttpGetIn" />
+      <wsdl:output message="tns:GetHotelsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SiteScope">
+      <wsdl:input message="tns:SiteScopeHttpGetIn" />
+      <wsdl:output message="tns:SiteScopeHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HotelsSoap" type="tns:HotelsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetHotel">
+      <soap:operation soapAction="http://ws.design.americaneagle.com/GetHotel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHotelHotelCredentials" part="HotelCredentials" use="literal" />
+        <soap:header message="tns:GetHotelImageOptions" part="ImageOptions" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotels">
+      <soap:operation soapAction="http://ws.design.americaneagle.com/GetHotels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHotelsHotelCredentials" part="HotelCredentials" use="literal" />
+        <soap:header message="tns:GetHotelsFilterContainer" part="FilterContainer" use="literal" />
+        <soap:header message="tns:GetHotelsImageOptions" part="ImageOptions" use="literal" />
+        <soap:header message="tns:GetHotelsHotelPagingOptions" part="HotelPagingOptions" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHotelsHotelCredentials" part="HotelCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiteScope">
+      <soap:operation soapAction="http://ws.design.americaneagle.com/SiteScope" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="HotelsSoap12" type="tns:HotelsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetHotel">
+      <soap12:operation soapAction="http://ws.design.americaneagle.com/GetHotel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetHotelHotelCredentials" part="HotelCredentials" use="literal" />
+        <soap12:header message="tns:GetHotelImageOptions" part="ImageOptions" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotels">
+      <soap12:operation soapAction="http://ws.design.americaneagle.com/GetHotels" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetHotelsHotelCredentials" part="HotelCredentials" use="literal" />
+        <soap12:header message="tns:GetHotelsFilterContainer" part="FilterContainer" use="literal" />
+        <soap12:header message="tns:GetHotelsImageOptions" part="ImageOptions" use="literal" />
+        <soap12:header message="tns:GetHotelsHotelPagingOptions" part="HotelPagingOptions" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetHotelsHotelCredentials" part="HotelCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiteScope">
+      <soap12:operation soapAction="http://ws.design.americaneagle.com/SiteScope" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="HotelsHttpGet" type="tns:HotelsHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetHotel">
+      <http:operation location="/GetHotel" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotels">
+      <http:operation location="/GetHotels" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SiteScope">
+      <http:operation location="/SiteScope" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Hotels">
+    <wsdl:port name="HotelsSoap" binding="tns:HotelsSoap">
+      <soap:address location="http://ws-design.idevdesign.net/hotels.asmx" />
+    </wsdl:port>
+    <wsdl:port name="HotelsSoap12" binding="tns:HotelsSoap12">
+      <soap12:address location="http://ws-design.idevdesign.net/hotels.asmx" />
+    </wsdl:port>
+    <wsdl:port name="HotelsHttpGet" binding="tns:HotelsHttpGet">
+      <http:address location="http://ws-design.idevdesign.net/hotels.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

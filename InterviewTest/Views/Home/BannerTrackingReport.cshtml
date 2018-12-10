@@ -1,0 +1,42 @@
+﻿@model IEnumerable<InterviewTest.Models.Banner>
+
+@{
+    ViewBag.Title = "Banner Tracking Report";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<p>@Html.ActionLink("< Back", "Index")</p>
+
+<p>There are 2 tables in the database "webapp" called: <strong>Banner</strong> and <strong>BannerTracking</strong>.</p>
+
+<p>Please create a query that returns:</p>
+<p>Banner Name and Banner Link fields and the sum of all impressions and the sum of all clicks between 11/18/2015 and 11/24/2015</p>
+
+<p>Please bind the result to a WebGrid and display this WebGrid below. The WebGrid NuGet package has already been added for your convenience.</p>
+
+@{ 
+    WebGrid grid = new WebGrid(source: ViewBag.list);
+}
+
+<div id="webgrid">
+    @grid.GetHtml(tableStyle: "table", htmlAttributes: new {id = "gridList"},
+        columns: grid.Columns(
+            grid.Column("BannerName","Banner Name"),
+            grid.Column("BannerLink", "Banner Link"),
+            grid.Column("ImpressionCount", "Total Impressions"),
+            grid.Column("ClickCount", "Total Clicks")
+        )
+    );
+</div>
+
+<h2><strong>Banner</strong> table</h2>
+<img src="~/Content/Images/banner_design.png" alt="Banner Table Design" /><br />
+
+<h2><strong>BannerTracking</strong> table</h2>
+<img src="~/Content/Images/bannertracking_design.png" alt="BannerTracking Table Design" /><br />
+
+<h2><strong>Banner</strong> table data</h2>
+<img src="~/Content/Images/banner_data.png" alt="Banner Table Data" /><br />
+
+<h2><strong>BannerTracking</strong> table data</h2>
+<img src="~/Content/Images/bannertracking_data.png" alt="BannerTracking Table Data" /><br />

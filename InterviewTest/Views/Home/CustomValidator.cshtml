@@ -1,0 +1,83 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Custom Validator";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<p>@Html.ActionLink("< Back", "Index")</p>
+
+<p>Please add custom validation to achieve the following:</p>
+<ul>
+    <li>If both fields are filled out, then an error should NOT appear.</li>
+    <li>If one field is filled out, then an error should NOT appear.</li>
+    <li>If neither field is filled out, then an error should appear.</li>
+</ul>
+
+<p>Please perform validation on the server and please make sure that Javascript (client-side) validation is performed as well. We've had several applicants forget to do the Javascript validation on the client-side so please make sure that you're doing both server-side and client-side validation.</p>
+
+<p>Server-side validation needs to be implemented on the code behind page.</p>
+
+@using (Html.BeginForm("CustomValidatorPost", "Home", FormMethod.Post))
+{
+    <div class="container-fluid">
+        <div class="row">
+            <div class="hidden">
+                <input type="hidden" id="formId" class="form-control" value="" />
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <select id="drpState" class="form-control">
+                        <option value=""></option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                    </select>
+                </div>
+            </div>
+
+            <asp:CustomValidator id="StateValidator"
+                                 ControlToValidate="drpState"
+                                 Display="Static"
+                                 ErrorMessage="Please Choose a Selection"
+                                 ForeColor="green"
+                                 OnServerValidation="CustomValidatorIsValid"
+                                 runat="server" />
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="text" id="txtRegion" name="txtRegion" class="form-control" />
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <button type="submit" name="btnSubmit" id="btnSubmit" class="btn btn-default" onclick="clientValidation()">Submit</button>
+            </div>
+        </div>
+    </div>
+}
+
+@{ 
+    if(ViewBag.Message != "")
+    {
+        <p>@ViewBag.Message</p>
+        
+    }
+}
+<script>
+    function clientValidation() {
+        var stateBox = document.getElementById("drpState");
+        var txtBox = document.getElementById("txtRegion");
+
+        if (stateBox.value == "") {
+            if (txtBox.value == "") {
+                document.getElementById("formId").value = 0;
+                alert("Neither field is filled out");
+                alert("Please fill out at least one of the fields");
+            }
+            else {
+                document.getElementById("formId").value = 1;
+            }
+        }
+    }
+</script>

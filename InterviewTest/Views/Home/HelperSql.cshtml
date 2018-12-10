@@ -1,0 +1,156 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Helper SQL Script";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<p>@Html.ActionLink("< Back", "Index")</p>
+
+<pre>
+/****** Object:  Table [dbo].[Banner]    Script Date: 5/27/2013 2:39:47 PM ******/
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Banner]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[Banner]
+GO
+/****** Object:  Table [dbo].[BannerTracking]    Script Date: 5/27/2013 2:39:47 PM ******/
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[BannerTracking]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[BannerTracking]
+GO
+/****** Object:  Table [dbo].[Banner]    Script Date: 5/27/2013 2:39:47 PM ******/
+CREATE TABLE [dbo].[Banner] (
+	[BannerId] [int] NOT NULL ,
+	[Name] [varchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[Link] [varchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[Image] [varchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[AltText] [varchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[Target] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[IsActive] [bit] NOT NULL 
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[BannerTracking]    Script Date: 5/27/2013 2:39:47 PM ******/
+CREATE TABLE [dbo].[BannerTracking] (
+	[TrackingId] [int] NOT NULL ,
+	[BannerId] [int] NOT NULL ,
+	[ImpressionCount] [bigint] NULL ,
+	[ClickCount] [bigint] NULL ,
+	[CreateDate] [datetime] NULL 
+) ON [PRIMARY]
+GO
+INSERT [dbo].[Banner] ([BannerId], [Name], [Link], [Image], [AltText], [Target], [IsActive]) VALUES (2, N'Satisfaction - Large', N'http://localhost', N'logo-satisfaction-lg.gif', N'100% Home Satisfaction Guaranteed', NULL, 1)
+INSERT [dbo].[Banner] ([BannerId], [Name], [Link], [Image], [AltText], [Target], [IsActive]) VALUES (3, N'Privacy - Large', N'http://localhost', N'logo-privacy-lg.gif', N'We Respect Your Privacy', NULL, 1)
+INSERT [dbo].[Banner] ([BannerId], [Name], [Link], [Image], [AltText], [Target], [IsActive]) VALUES (4, N'Verisign Seal - Large', N'http://localhost', N'vsign-lg.gif', N'Verisign Secured - click here to verify', NULL, 1)
+INSERT [dbo].[Banner] ([BannerId], [Name], [Link], [Image], [AltText], [Target], [IsActive]) VALUES (5, N'Logo - Left', N'http://localhost', N'ssf-logo.gif', N'A member of the School Specialty Family', NULL, 1)
+INSERT [dbo].[Banner] ([BannerId], [Name], [Link], [Image], [AltText], [Target], [IsActive]) VALUES (6, N'Phone number - Left', N'http://localhost', N'nav-phone.gif', N'800-417-3261', NULL, 1)
+INSERT [dbo].[Banner] ([BannerId], [Name], [Link], [Image], [AltText], [Target], [IsActive]) VALUES (7, N'Free Shipping - Left', N'http://localhost', N'free-shipping-177x1691.gif', N'Free shipping on orders over $30', NULL, 1)
+INSERT [dbo].[Banner] ([BannerId], [Name], [Link], [Image], [AltText], [Target], [IsActive]) VALUES (8, N'Satisfaction -Small', N'http://localhost', N'logo-satisfaction-sm.gif', N'100% Home Satisfaction Guaranteed', NULL, 1)
+INSERT [dbo].[Banner] ([BannerId], [Name], [Link], [Image], [AltText], [Target], [IsActive]) VALUES (9, N'Privacy -Small', N'http://localhost', N'logo-privacy-sm.gif', N'We Respect Your Privacy', NULL, 1)
+INSERT [dbo].[Banner] ([BannerId], [Name], [Link], [Image], [AltText], [Target], [IsActive]) VALUES (10, N'Verisign Seal -Small', N'http://localhost', N'vsign-sm.gif', N'Verisign Secured - click here to verify', NULL, 1)
+INSERT [dbo].[Banner] ([BannerId], [Name], [Link], [Image], [AltText], [Target], [IsActive]) VALUES (11, N'Gift Certificate', N'http://localhost', N'gift-certs-252x1852.gif', N'Gift Certificate', NULL, 1)
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (3, 11, 101, 7, '11/16/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (4, 6, 226, 1, '11/16/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (5, 5, 211, 5, '11/16/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (6, 2, 74, 4, '11/16/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (7, 3, 72, 0, '11/16/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (8, 4, 70, 8, '11/16/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (9, 8, 117, 4, '11/16/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (10, 9, 115, 6, '11/16/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (11, 10, 113, 5, '11/16/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (12, 7, 66, 2, '11/16/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (13, 6, 112, 0, '11/17/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (14, 7, 18, 5, '11/17/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (15, 11, 18, 1, '11/17/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (16, 5, 112, 10, '11/17/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (17, 2, 18, 10, '11/17/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (18, 3, 18, 4, '11/17/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (19, 4, 18, 8, '11/17/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (20, 8, 94, 4, '11/17/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (21, 9, 94, 3, '11/17/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (22, 10, 94, 6, '11/17/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (23, 6, 1, 1, '11/18/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (24, 7, 1, 5, '11/18/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (25, 11, 1, 7, '11/18/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (26, 5, 1, 6, '11/18/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (27, 2, 1, 1, '11/18/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (28, 3, 1, 7, '11/18/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (29, 4, 1, 9, '11/18/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (30, 6, 112, 4, '11/19/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (31, 7, 38, 0, '11/19/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (32, 11, 38, 1, '11/19/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (33, 5, 112, 4, '11/19/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (34, 2, 38, 9, '11/19/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (35, 3, 38, 8, '11/19/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (36, 4, 38, 9, '11/19/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (37, 8, 74, 9, '11/19/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (38, 9, 74, 3, '11/19/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (39, 10, 74, 6, '11/19/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (40, 6, 235, 6, '11/20/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (41, 5, 235, 6, '11/20/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (42, 8, 103, 2, '11/20/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (43, 9, 103, 5, '11/20/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (44, 10, 103, 3, '11/20/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (45, 7, 132, 10, '11/20/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (46, 11, 132, 5, '11/20/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (47, 2, 132, 6, '11/20/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (48, 3, 132, 7, '11/20/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (49, 4, 132, 6, '11/20/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (50, 6, 80, 10, '11/21/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (51, 7, 32, 5, '11/21/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (52, 11, 32, 7, '11/21/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (53, 5, 80, 7, '11/21/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (54, 2, 32, 2, '11/21/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (55, 3, 32, 3, '11/21/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (56, 4, 32, 6, '11/21/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (57, 8, 48, 4, '11/21/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (58, 9, 48, 4, '11/21/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (59, 10, 48, 6, '11/21/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (60, 6, 18, 4, '11/22/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (61, 7, 6, 4, '11/22/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (62, 11, 6, 3, '11/22/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (63, 5, 18, 4, '11/22/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (64, 2, 6, 8, '11/22/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (65, 3, 6, 6, '11/22/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (66, 4, 6, 4, '11/22/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (67, 8, 12, 10, '11/22/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (68, 9, 12, 3, '11/22/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (69, 10, 12, 9, '11/22/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (70, 6, 5, 5, '11/23/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (71, 7, 2, 4, '11/23/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (72, 11, 2, 9, '11/23/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (73, 5, 5, 10, '11/23/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (74, 2, 2, 10, '11/23/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (75, 3, 2, 4, '11/23/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (76, 4, 2, 3, '11/23/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (77, 8, 3, 0, '11/23/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (78, 9, 3, 0, '11/23/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (79, 10, 3, 8, '11/23/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (80, 6, 187, 2, '11/24/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (81, 7, 50, 9, '11/24/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (82, 11, 50, 3, '11/24/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (83, 5, 187, 0, '11/24/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (84, 2, 50, 0, '11/24/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (85, 3, 50, 3, '11/24/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (86, 4, 50, 3, '11/24/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (87, 8, 137, 0, '11/24/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (88, 9, 137, 9, '11/24/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (89, 10, 137, 4, '11/24/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (90, 6, 241, 1, '11/25/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (91, 7, 59, 0, '11/25/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (92, 11, 18, 7, '11/25/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (93, 5, 241, 5, '11/25/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (94, 2, 59, 3, '11/25/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (95, 3, 59, 7, '11/25/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (96, 4, 59, 9, '11/25/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (97, 8, 182, 3, '11/25/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (98, 9, 182, 6, '11/25/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (99, 10, 182, 9, '11/25/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (100, 6, 263, 8, '11/26/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (101, 7, 88, 0, '11/26/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (102, 5, 263, 7, '11/26/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (103, 2, 88, 1, '11/26/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (104, 3, 88, 10, '11/26/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (105, 4, 108, 6, '11/26/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (106, 8, 175, 8, '11/26/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (107, 9, 175, 10, '11/26/2015')
+INSERT [dbo].[BannerTracking] ([TrackingId], [BannerId], [ImpressionCount], [ClickCount], [CreateDate]) VALUES (108, 10, 175, 3, '11/26/2015')
+</pre>
+
